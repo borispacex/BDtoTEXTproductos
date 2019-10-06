@@ -26,39 +26,45 @@
             android:textSize="20dp" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="INICIALIZAR LA B.D."
             android:textSize="20dp"
             android:onClick="inicializar"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="MIGRAR DE TEXTO A B.D."
             android:textSize="20dp"
             android:onClick="migrar"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="CONSULTAS EN ARCHIVO TEXTO"
             android:textSize="20dp"
             android:onClick="consultartexto"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="CONSULTAS EN LA BASE DE DATOS"
             android:textSize="20dp"
             android:onClick="consultarbd"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="FINALIZAR"
             android:textSize="20dp"
             android:onClick="finalizar"/>
+
+        <TextView
+            android:id="@+id/mostrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mostrar"/>
 
     </LinearLayout>
 
