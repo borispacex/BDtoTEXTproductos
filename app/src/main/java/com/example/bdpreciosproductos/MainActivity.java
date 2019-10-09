@@ -105,12 +105,12 @@ public class MainActivity extends AppCompatActivity {
             for (int i = 0; i < vuelta - 1; i++) {
                 c = pt.InsertarPrecio(codigoPrecio[i], letra[i], fecha[i], Double.parseDouble(precio[i] + ""));
             }
-            String r = pt.ListarProductos();
-            String r1 = pt.ListarPrecios();
-            String r2 = pt.BuscarByCodigo("2003");
+            // String r = pt.ListarProductos();
+            // String r1 = pt.ListarPrecios();
 
-            tmostrar.setText(r + "\n \n" + r1 + "\n \n" + r2);
-            tmostrar.setText(r2);
+            // tmostrar.setText(r + "\n \n" + r1);
+
+            tmostrar.setText("Ya puede usar la base de datos");
 
             Toast.makeText(this, "Migración finalizada", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
