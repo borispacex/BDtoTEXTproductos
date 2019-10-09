@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
             String r1 = pt.ListarPrecios();
             String r2 = pt.BuscarByCodigo("2003");
 
-            // tmostrar.setText(r + "\n \n" + r1 + "\n \n" + r2);
+            tmostrar.setText(r + "\n \n" + r1 + "\n \n" + r2);
             tmostrar.setText(r2);
 
             Toast.makeText(this, "Migración finalizada", Toast.LENGTH_SHORT).show();

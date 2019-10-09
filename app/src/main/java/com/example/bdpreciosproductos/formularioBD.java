@@ -41,6 +41,12 @@ public class formularioBD extends AppCompatActivity {
         eexistencia = (EditText)findViewById(R.id.existencia);
 
         eduracion = (EditText)findViewById(R.id.duracion);
+
+        try {
+            pt.apertura();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void borrar(View view) {
@@ -48,17 +54,61 @@ public class formularioBD extends AppCompatActivity {
     }
 
     public void buscar(View view) {
+        long startTime = System.currentTimeMillis();
         try {
-
             String cad = ecodigo.getText().toString();
-
             String r = pt.BuscarByCodigo(cad);
-
-            tmostrar.setText(r);
+            extraerByCodigo(r);
 
         } catch (Exception e) {
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
+        long difference = System.currentTimeMillis() - startTime;
+        eduracion.setText(difference + " milisegundos");
+    }
+    public void extraerByCodigo(String cadena) {
+        String palabra = "", voca;
+        String cadMostrar = "Codigo              Fecha Vigencia              Precio\n";
+        int pos = 0;
+        for (int i=1; i<=cadena.length(); i++) {
+            voca = cadena.substring(i-1, i);
+            if (voca.compareTo("|")==0) {
+                switch(pos) {
+                    case 0:
+                        cadMostrar = cadMostrar + palabra + "              ";
+                        break;
+                    case 1:
+                        edescripcion.setText(palabra);
+                        break;
+                    case 2:
+                        euniVen.setText(palabra);
+                        break;
+                    case 3:
+                        eunixEnvase.setText(palabra);
+                        break;
+                    case 4:
+                        ecodigoLinea.setText(palabra);
+                        break;
+                    case 5:
+                        eexistencia.setText(palabra);
+                        break;
+                    case 6:
+                        cadMostrar = cadMostrar + palabra + "             ";
+                        break;
+                    case 7:
+                        eprecioVenta.setText(palabra);
+                        cadMostrar = cadMostrar + palabra;
+                        break;
+                    default:
+                        System.out.println("error, se desbordo");
+                }
+                palabra = "";
+                pos++;
+            }else{
+                palabra = palabra + voca;
+            }
+        }
+        tmostrar.setText(cadMostrar);
     }
 
     public void finalizar(View view) {
